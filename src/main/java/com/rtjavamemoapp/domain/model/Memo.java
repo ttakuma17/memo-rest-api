@@ -38,7 +38,7 @@ public class Memo {
         return date;
     }
 
-    public int getmarkDiv(){
+    public int getMarkDiv() {
         return markDiv;
     }
 }

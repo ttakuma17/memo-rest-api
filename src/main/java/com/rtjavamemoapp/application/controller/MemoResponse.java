@@ -11,13 +11,13 @@ public class MemoResponse {
     private String date;
     private int markDiv;
 
-    public MemoResponse(Memo memo){
+    public MemoResponse(Memo memo) {
         this.id = memo.getId();
         this.title = memo.getTitle();
         this.description = memo.getDescription();
         this.category = memo.getCategory();
         this.date = memo.getDate();
-        this.markDiv = memo.getmarkDiv();
+        this.markDiv = memo.getMarkDiv();
     }
 
     public int getId(){
@@ -56,11 +56,11 @@ public class MemoResponse {
         this.date = date;
     }
 
-    public int getmarkDiv() {
+    public int getMarkDiv() {
         return markDiv;
     }
 
-    public void setmarkDiv(){
+    public void setMarkDiv() {
         this.markDiv = markDiv;
     }
 }
