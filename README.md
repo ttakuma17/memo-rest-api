@@ -34,3 +34,15 @@ domain 配下の repository と serviceの使い分け / Infra の entity など
 [① ](http://terasolunaorg.github.io/guideline/current/ja/Overview/ApplicationLayering.html)
 [② ](https://qiita.com/YutaKase6/items/7d88fa23f81366905270)
 [③ ](https://cs27.org/wiki/kobespiral2021/?SpringBoot/%E5%90%84%E3%83%AC%E3%82%A4%E3%83%A4%E3%81%AE%E8%B2%AC%E5%8B%99)
+
+### 第10回 課題を進める前にアプリケーションの構成の確認メモ
+
+課題に着手する際に以下は必ず再確認すること
+[RESTful Web Services](http://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebServiceDetail/REST.html#resthowtouseapplicationsettings)  
+[ドメイン層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/DomainLayer.html)  
+[インフラストラクチャ層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/InfrastructureLayer.html)  
+[アプリケーション層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/ApplicationLayer.html)  
+[例外ハンドリング](http://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApplicationDetail/ExceptionHandling.html)  
+
+
+
