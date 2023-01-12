@@ -1,4 +1,4 @@
-package com.rtjavamemoapp.application.controller;
+package com.rtjavamemoapp.application.resources;
 
 import com.rtjavamemoapp.domain.model.Memo;
 import lombok.Data;
@@ -11,7 +11,7 @@ public class MemoResponse {
     private String description;
     private String category;
     private String date;
-    private int markDiv;
+    private int mark_div;
 
     public MemoResponse(Memo memo) {
         this.id = memo.getId();
@@ -19,7 +19,7 @@ public class MemoResponse {
         this.description = memo.getDescription();
         this.category = memo.getCategory();
         this.date = memo.getDate();
-        this.markDiv = memo.getMarkDiv();
+        this.mark_div = memo.getMark_div();
     }
     
 }

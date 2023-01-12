@@ -1,13 +1,12 @@
 package com.rtjavamemoapp.application.controller;
 
+import com.rtjavamemoapp.application.resources.MemoForm;
+import com.rtjavamemoapp.application.resources.MemoResponse;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.domain.service.MemoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class MemoController {
@@ -24,7 +23,13 @@ public class MemoController {
     }
 
     @GetMapping("/memos/{id}")
-    public Optional<Memo> findById(@PathVariable int id) {
+    public Memo findById(@PathVariable int id) {
         return memoService.findById(id);
     }
+
+    @PostMapping("/memos")
+    public void createMemo(@RequestBody MemoForm form) {
+        memoService.createMemo(form);
+    }
 }
+

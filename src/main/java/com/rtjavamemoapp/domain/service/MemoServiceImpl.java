@@ -1,11 +1,11 @@
 package com.rtjavamemoapp.domain.service;
 
+import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.infrastructure.mapper.MemoMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MemoServiceImpl implements MemoService {
@@ -22,7 +22,12 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
-    public Optional<Memo> findById(int id) {
+    public Memo findById(int id) {
         return this.memoMapper.findById(id);
+    }
+
+    @Override
+    public void createMemo(MemoForm form) {
+        this.memoMapper.createMemo(form);
     }
 }
