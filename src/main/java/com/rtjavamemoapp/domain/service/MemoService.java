@@ -12,4 +12,7 @@ public interface MemoService {
     Memo findById(int id);
 
     void createMemo(MemoForm form);
+
+    void deleteMemo(int id);
+
 }

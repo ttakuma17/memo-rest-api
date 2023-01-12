@@ -30,4 +30,9 @@ public class MemoServiceImpl implements MemoService {
     public void createMemo(MemoForm form) {
         this.memoMapper.createMemo(form);
     }
+
+    @Override
+    public void deleteMemo(int id) {
+        this.memoMapper.deleteMemo(id);
+    }
 }

@@ -31,5 +31,10 @@ public class MemoController {
     public void createMemo(@RequestBody MemoForm form) {
         memoService.createMemo(form);
     }
+
+    @DeleteMapping("memos/{id}")
+    public void deleteMemo(@PathVariable int id) {
+        memoService.deleteMemo(id);
+    }
 }
 
