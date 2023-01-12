@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class MemoServiceImpl implements MemoService {
     
-    private MemoMapper memoMapper;
+    private final MemoMapper memoMapper;
 
     public MemoServiceImpl(MemoMapper memoMapper) {
         this.memoMapper = memoMapper;
@@ -38,9 +38,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void updateMemo(int id, MemoForm form) {
-        //update処理がうまくいかない要因を確認
-        // formのIDが0になってしまい、PathVariableの入力値を渡せていないことでデータの更新がされない
-        memoMapper.findById(id);
+        form.setId(id);
         memoMapper.updateMemo(form);
     }
 }
