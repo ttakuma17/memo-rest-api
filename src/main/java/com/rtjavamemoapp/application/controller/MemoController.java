@@ -19,22 +19,27 @@ public class MemoController {
 
     @GetMapping("/memos")
     public List<MemoResponse> getMemos() {
-        return memoService.findAll().stream().map(MemoResponse::new).toList();
+        return this.memoService.findAll().stream().map(MemoResponse::new).toList();
     }
 
     @GetMapping("/memos/{id}")
     public Memo findById(@PathVariable int id) {
-        return memoService.findById(id);
+        return this.memoService.findById(id);
     }
 
     @PostMapping("/memos")
     public void createMemo(@RequestBody MemoForm form) {
-        memoService.createMemo(form);
+        this.memoService.createMemo(form);
     }
 
     @DeleteMapping("memos/{id}")
     public void deleteMemo(@PathVariable int id) {
-        memoService.deleteMemo(id);
+        this.memoService.deleteMemo(id);
+    }
+
+    @PatchMapping("memos/{id}")
+    public void updateMemo(@PathVariable("id") int id, @RequestBody MemoForm form) {
+        this.memoService.updateMemo(id, form);
     }
 }
 

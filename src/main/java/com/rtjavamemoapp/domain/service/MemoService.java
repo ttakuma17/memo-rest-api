@@ -15,4 +15,6 @@ public interface MemoService {
 
     void deleteMemo(int id);
 
+    void updateMemo(int id, MemoForm form);
+
 }

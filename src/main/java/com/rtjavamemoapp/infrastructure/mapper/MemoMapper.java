@@ -21,4 +21,7 @@ public interface MemoMapper {
 
     @Delete("DELETE from memos WHERE id=#{id}")
     void deleteMemo(int id);
+
+    @Update("UPDATE memos SET title=#{title}, category=#{category}, description=#{description}, date=#{date},mark_div=#{mark_div} WHERE id=#{id}")
+    void updateMemo(MemoForm form);
 }

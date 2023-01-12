@@ -1,8 +1,8 @@
 package com.rtjavamemoapp.application.resources;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class MemoForm {
 
     private int id;
@@ -11,5 +11,5 @@ public class MemoForm {
     private String category;
     private String date;
     private int mark_div;
-
+    
 }

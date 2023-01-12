@@ -18,21 +18,29 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public List<Memo> findAll() {
-        return this.memoMapper.findAll();
+        return memoMapper.findAll();
     }
 
     @Override
     public Memo findById(int id) {
-        return this.memoMapper.findById(id);
+        return memoMapper.findById(id);
     }
 
     @Override
     public void createMemo(MemoForm form) {
-        this.memoMapper.createMemo(form);
+        memoMapper.createMemo(form);
     }
 
     @Override
     public void deleteMemo(int id) {
-        this.memoMapper.deleteMemo(id);
+        memoMapper.deleteMemo(id);
+    }
+
+    @Override
+    public void updateMemo(int id, MemoForm form) {
+        //update処理がうまくいかない要因を確認
+        // formのIDが0になってしまい、PathVariableの入力値を渡せていないことでデータの更新がされない
+        memoMapper.findById(id);
+        memoMapper.updateMemo(form);
     }
 }
