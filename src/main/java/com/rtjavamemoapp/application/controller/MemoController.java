@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.ZonedDateTime;
@@ -32,7 +33,7 @@ public class MemoController {
     }
 
     @PostMapping("/memos")
-    public void createMemo(@RequestBody MemoForm form) {
+    public void createMemo(@RequestBody @Validated MemoForm form) {
         memoService.createMemo(form);
     }
 
@@ -42,7 +43,7 @@ public class MemoController {
     }
 
     @PatchMapping("/memos/{id}")
-    public void updateMemo(@PathVariable int id, @RequestBody MemoForm form) {
+    public void updateMemo(@PathVariable int id, @RequestBody @Validated MemoForm form) {
         memoService.updateMemo(id, form);
     }
 
