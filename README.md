@@ -10,7 +10,7 @@
 │       └──  MemoResponse.java
 ├── domain (業務処理を実行する)
 │   ├── exception（例外処理）
-│   │   └── Will do 10回課題の着手時に例外処理を実装
+│   │   └── ResourceNotFountException.java
 │   ├── model（DBのデータの構造を保存）
 │   │   └── Memo.java
 │   ├── repository（業務データへのアクセス？）

@@ -5,6 +5,7 @@ import com.rtjavamemoapp.domain.model.Memo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface MemoMapper {
@@ -13,7 +14,7 @@ public interface MemoMapper {
     List<Memo> findAll();
 
     @Select("SELECT * FROM memos WHERE id=#{id}")
-    Memo findById(int id);
+    Optional<Memo> findById(int id);
 
     @Insert("INSERT INTO memos(title, category, description, date, mark_div) VALUES(#{title}, #{category}, #{description}, #{date}, #{mark_div})")
     @Options(useGeneratedKeys = true, keyProperty = "id")

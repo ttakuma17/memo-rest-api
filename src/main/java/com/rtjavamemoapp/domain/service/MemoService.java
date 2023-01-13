@@ -9,7 +9,7 @@ public interface MemoService {
 
     List<Memo> findAll();
 
-    Memo findById(int id);
+    Memo findById(int id) throws Exception;
 
     void createMemo(MemoForm form);
 
