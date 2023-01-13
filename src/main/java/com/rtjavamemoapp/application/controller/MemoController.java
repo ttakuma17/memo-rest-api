@@ -4,19 +4,17 @@ import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.application.resources.MemoResponse;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.domain.service.MemoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class MemoController {
 
     private final MemoService memoService;
-
-    public MemoController(MemoService memoService) {
-        this.memoService = memoService;
-    }
-
+    
     @GetMapping("/memos")
     public List<MemoResponse> getMemos() {
         return memoService.findAll().stream().map(MemoResponse::new).toList();

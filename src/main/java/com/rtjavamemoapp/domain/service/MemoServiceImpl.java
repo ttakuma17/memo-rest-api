@@ -3,19 +3,17 @@ package com.rtjavamemoapp.domain.service;
 import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.infrastructure.mapper.MemoMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MemoServiceImpl implements MemoService {
     
     private final MemoMapper memoMapper;
-
-    public MemoServiceImpl(MemoMapper memoMapper) {
-        this.memoMapper = memoMapper;
-    }
-
+    
     @Override
     public List<Memo> findAll() {
         return memoMapper.findAll();
