@@ -1,5 +1,5 @@
 ---
-name: 'Issue : '
+name: "[Fix]"
 about: 修正用テンプレート
 title: ''
 labels: ''
