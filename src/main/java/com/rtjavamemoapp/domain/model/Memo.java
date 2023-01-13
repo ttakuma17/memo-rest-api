@@ -10,15 +10,15 @@ public class Memo {
     private String description;
     private String category;
     private String date;
-    private int markDiv;
+    private int MarkDiv;
 
-    public Memo(int id, String title, String description, String category, String date, int markDiv) {
+    public Memo(int id, String title, String description, String category, String date, int mark_div) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.category = category;
         this.date = date;
-        this.markDiv = markDiv;
+        this.MarkDiv = mark_div;
     }
     
 }

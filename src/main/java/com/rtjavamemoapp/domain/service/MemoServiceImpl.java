@@ -1,28 +1,42 @@
 package com.rtjavamemoapp.domain.service;
 
+import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.infrastructure.mapper.MemoMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MemoServiceImpl implements MemoService {
     
-    private MemoMapper memoMapper;
-
-    public MemoServiceImpl(MemoMapper memoMapper) {
-        this.memoMapper = memoMapper;
-    }
-
+    private final MemoMapper memoMapper;
+    
     @Override
     public List<Memo> findAll() {
-        return this.memoMapper.findAll();
+        return memoMapper.findAll();
     }
 
     @Override
-    public Optional<Memo> findById(int id) {
-        return this.memoMapper.findById(id);
+    public Memo findById(int id) {
+        return memoMapper.findById(id);
+    }
+
+    @Override
+    public void createMemo(MemoForm form) {
+        memoMapper.createMemo(form);
+    }
+
+    @Override
+    public void deleteMemo(int id) {
+        memoMapper.deleteMemo(id);
+    }
+
+    @Override
+    public void updateMemo(int id, MemoForm form) {
+        form.setId(id);
+        memoMapper.updateMemo(form);
     }
 }

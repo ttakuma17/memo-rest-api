@@ -1,4 +1,4 @@
-package com.rtjavamemoapp.application.controller;
+package com.rtjavamemoapp.application.resources;
 
 import com.rtjavamemoapp.domain.model.Memo;
 import lombok.Data;
