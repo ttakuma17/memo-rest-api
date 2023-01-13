@@ -11,7 +11,7 @@ public class MemoResponse {
     private String description;
     private String category;
     private String date;
-    private int mark_div;
+    private int markDiv;
 
     public MemoResponse(Memo memo) {
         this.id = memo.getId();
@@ -19,7 +19,7 @@ public class MemoResponse {
         this.description = memo.getDescription();
         this.category = memo.getCategory();
         this.date = memo.getDate();
-        this.mark_div = memo.getMark_div();
+        this.markDiv = memo.getMarkDiv();
     }
     
 }

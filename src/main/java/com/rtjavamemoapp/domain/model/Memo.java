@@ -10,7 +10,7 @@ public class Memo {
     private String description;
     private String category;
     private String date;
-    private int mark_div;
+    private int MarkDiv;
 
     public Memo(int id, String title, String description, String category, String date, int mark_div) {
         this.id = id;
@@ -18,7 +18,7 @@ public class Memo {
         this.description = description;
         this.category = category;
         this.date = date;
-        this.mark_div = mark_div;
+        this.MarkDiv = mark_div;
     }
     
 }
