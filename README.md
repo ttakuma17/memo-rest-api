@@ -5,9 +5,12 @@
 ```
 ├── RtJavaMemoAppApplication.java
 ├── application (クライアントとのデータの入出力)
-│   └──── controller
-│       ├──  MemoController.java
-│       └──  MemoResponse.java
+│   ├──── controller
+│   │   ├──  MemoController.java
+│   │   └──  MemoControllerAdvice.java
+│   └──── resources
+│   │   ├──  MemoForm.java
+│   │   └──  MemoResponse.java
 ├── domain (業務処理を実行する)
 │   ├── exception（例外処理）
 │   │   └── ResourceNotFountException.java
@@ -19,8 +22,6 @@
 │       ├── MemoService.java
 │       └── MemoServiceImpl.java
 ├── infrastructure (ドメイン層の実装を提供する)
-│   ├── entity
-│   │   └──現状はなし 
 │   └── mapper (データの操作を行う / これもrepositoryと名付けることあり)
 │       └── MemoMapper.java
 ```
