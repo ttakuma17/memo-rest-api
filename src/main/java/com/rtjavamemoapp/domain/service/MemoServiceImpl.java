@@ -32,14 +32,13 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void deleteMemo(int id) {
+        memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
         memoMapper.deleteMemo(id);
     }
 
     @Override
     public void updateMemo(int id, MemoForm form) {
-        // 理想系のコード ↓ form側の ID が 0になり以下では更新処理ができない
-        // memoMapper.findById(id);
-        form.setId(id);
+        memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
         memoMapper.updateMemo(form);
     }
 }
