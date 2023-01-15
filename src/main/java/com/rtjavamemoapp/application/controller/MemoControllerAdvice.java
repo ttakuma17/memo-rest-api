@@ -19,19 +19,21 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class MemoControllerAdvice {
+    private static final String TIMESTAMP = "timestamp";
+    private static final String STATUS = "status";
+    private static final String ERROR = "error";
+    private static final String MESSAGE = "message";
+    private static final String PATH = "path";
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoResourceFound(ResourceNotFoundException e, HttpServletRequest request) {
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
-        final String EXCEPTION_OCCURRED_TIME = ZonedDateTime.now().format(formatter).toString();
-
         var body = Map.of(
-                "timestamp", EXCEPTION_OCCURRED_TIME,
-                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
-                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
-                "message", e.getMessage(),
-                "path", request.getRequestURI()
+                TIMESTAMP, ZonedDateTime.now().format(formatter),
+                STATUS, String.valueOf(HttpStatus.NOT_FOUND.value()),
+                ERROR, HttpStatus.NOT_FOUND.getReasonPhrase(),
+                MESSAGE, e.getMessage(),
+                PATH, request.getRequestURI()
         );
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
