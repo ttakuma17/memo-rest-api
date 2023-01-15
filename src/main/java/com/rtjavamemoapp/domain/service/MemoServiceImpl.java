@@ -39,6 +39,6 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public void updateMemo(int id, MemoForm form) {
         memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
-        memoMapper.updateMemo(form);
+        memoMapper.updateMemo(id, form);
     }
 }

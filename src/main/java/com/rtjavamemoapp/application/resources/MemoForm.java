@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.Range;
 @Getter
 public class MemoForm {
 
-    private int id;
     @NotBlank(message = "{validation.title-required}")
     @Size(min = 1, max = 20, message = "{validation.title-required}")
     private String title;

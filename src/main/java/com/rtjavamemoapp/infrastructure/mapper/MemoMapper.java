@@ -23,6 +23,6 @@ public interface MemoMapper {
     @Delete("DELETE from memos WHERE id=#{id}")
     void deleteMemo(int id);
 
-    @Update("UPDATE memos SET title=#{title}, category=#{category}, description=#{description}, date=#{date},mark_div=#{mark_div} WHERE id=#{id}")
-    void updateMemo(MemoForm form);
+    @Update("UPDATE memos SET title=#{form.title}, category=#{form.category}, description=#{form.description}, date=#{form.date},mark_div=#{form.mark_div} WHERE id=#{id}")
+    void updateMemo(int id, MemoForm form);
 }
