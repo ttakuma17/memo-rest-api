@@ -3,10 +3,10 @@ package com.rtjavamemoapp.application.resources;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.Getter;
 import org.hibernate.validator.constraints.Range;
 
-@Data
+@Getter
 public class MemoForm {
 
     private int id;
