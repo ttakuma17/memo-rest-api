@@ -20,11 +20,12 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class MemoControllerAdvice {
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
-    private final String EXCEPTION_OCCURRED_TIME = ZonedDateTime.now().format(formatter).toString();
-
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoResourceFound(ResourceNotFoundException e, HttpServletRequest request) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
+        final String EXCEPTION_OCCURRED_TIME = ZonedDateTime.now().format(formatter).toString();
+
         Map<String, String> body = Map.of(
                 "timestamp", EXCEPTION_OCCURRED_TIME,
                 "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
