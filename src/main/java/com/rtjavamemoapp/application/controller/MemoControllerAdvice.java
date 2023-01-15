@@ -26,7 +26,7 @@ public class MemoControllerAdvice {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
         final String EXCEPTION_OCCURRED_TIME = ZonedDateTime.now().format(formatter).toString();
 
-        Map<String, String> body = Map.of(
+        var body = Map.of(
                 "timestamp", EXCEPTION_OCCURRED_TIME,
                 "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
                 "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
