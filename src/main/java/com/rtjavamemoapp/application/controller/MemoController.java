@@ -5,6 +5,7 @@ import com.rtjavamemoapp.application.resources.MemoResponse;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.domain.service.MemoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +22,12 @@ public class MemoController {
     }
 
     @GetMapping("/memos/{id}")
-    public Memo findById(@PathVariable int id) {
+    public Memo findById(@PathVariable int id) throws Exception {
         return memoService.findById(id);
     }
 
     @PostMapping("/memos")
-    public void createMemo(@RequestBody MemoForm form) {
+    public void createMemo(@RequestBody @Validated MemoForm form) {
         memoService.createMemo(form);
     }
 
@@ -36,8 +37,9 @@ public class MemoController {
     }
 
     @PatchMapping("/memos/{id}")
-    public void updateMemo(@PathVariable int id, @RequestBody MemoForm form) {
+    public void updateMemo(@PathVariable int id, @RequestBody @Validated MemoForm form) {
         memoService.updateMemo(id, form);
     }
+    
 }
 

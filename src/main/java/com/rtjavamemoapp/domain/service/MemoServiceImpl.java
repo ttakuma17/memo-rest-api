@@ -1,6 +1,7 @@
 package com.rtjavamemoapp.domain.service;
 
 import com.rtjavamemoapp.application.resources.MemoForm;
+import com.rtjavamemoapp.domain.exception.ResourceNotFoundException;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.infrastructure.mapper.MemoMapper;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public Memo findById(int id) {
-        return memoMapper.findById(id);
+        return this.memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
     }
 
     @Override
@@ -31,12 +32,13 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void deleteMemo(int id) {
+        memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
         memoMapper.deleteMemo(id);
     }
 
     @Override
     public void updateMemo(int id, MemoForm form) {
-        form.setId(id);
-        memoMapper.updateMemo(form);
+        memoMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定したIDに紐づくメモは存在しません。"));
+        memoMapper.updateMemo(id, form);
     }
 }
