@@ -1,4 +1,8 @@
-## 第9回以降の課題用README
+## Spring bootでのRESTAPI作成
+
+メモアプリ（REST API)
+使用技術：Java Spring boot Junit5 Mockito
+テストの実装までを終えた段階でReactとの繋ぎ込みを行う予定
 
 ディレクトリ構成
 
@@ -26,24 +30,9 @@
 │       └── MemoMapper.java
 ```
 
-#### メモ → Readme整備のタイミングで削除
-
-ディレクトリごとの役割の理解が浅いので、もう少し調べてみる
-domain 配下の repository と serviceの使い分け / Infra の entity など
-
-ディレクトリ構成について参照ページ → 整理できたら削除
-[① ](http://terasolunaorg.github.io/guideline/current/ja/Overview/ApplicationLayering.html)
-[② ](https://qiita.com/YutaKase6/items/7d88fa23f81366905270)
-[③ ](https://cs27.org/wiki/kobespiral2021/?SpringBoot/%E5%90%84%E3%83%AC%E3%82%A4%E3%83%A4%E3%81%AE%E8%B2%AC%E5%8B%99)
-
-### 第10回 課題を進める前にアプリケーションの構成の確認メモ
-
-課題に着手する際に以下は必ず再確認すること
-[RESTful Web Services](http://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebServiceDetail/REST.html#resthowtouseapplicationsettings)  
+参考資料
+[RESTful Web Services](http://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebServiceDetail/REST.html#resthowtouseapplicationsettings) 
 [ドメイン層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/DomainLayer.html)  
 [インフラストラクチャ層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/InfrastructureLayer.html)  
 [アプリケーション層の実装](http://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/ApplicationLayer.html)  
 [例外ハンドリング](http://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApplicationDetail/ExceptionHandling.html)  
-
-
-
