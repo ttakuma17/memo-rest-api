@@ -7,16 +7,17 @@ public class Memo {
 
     private int id;
     private String title;
-    private String description;
     private String category;
+    private String description;
     private String date;
     private int MarkDiv;
 
-    public Memo(int id, String title, String description, String category, String date, int mark_div) {
+    public Memo(int id, String title, String category, String description, String date,
+        int mark_div) {
         this.id = id;
         this.title = title;
-        this.description = description;
         this.category = category;
+        this.description = description;
         this.date = date;
         this.MarkDiv = mark_div;
     }
