@@ -97,6 +97,9 @@ class MemoServiceImplTest {
 
         assertThatThrownBy(() -> memoServiceImpl.findById(1))
             .isInstanceOf(ResourceNotFoundException.class);
+
+        assertThatThrownBy(() -> memoServiceImpl.findById(1)).hasMessage(
+            "指定したIDに紐づくメモは存在しません。");
     }
 
     @Test
@@ -112,6 +115,9 @@ class MemoServiceImplTest {
 
         assertThatThrownBy(() -> memoServiceImpl.updateMemo(1, form))
             .isInstanceOf(ResourceNotFoundException.class);
+
+        assertThatThrownBy(() -> memoServiceImpl.findById(1)).hasMessage(
+            "指定したIDに紐づくメモは存在しません。");
     }
 
     @Test
@@ -120,5 +126,7 @@ class MemoServiceImplTest {
 
         assertThatThrownBy(() -> memoServiceImpl.deleteMemo(1))
             .isInstanceOf(ResourceNotFoundException.class);
+        assertThatThrownBy(() -> memoServiceImpl.findById(1)).hasMessage(
+            "指定したIDに紐づくメモは存在しません。");
     }
 }

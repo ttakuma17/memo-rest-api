@@ -68,7 +68,19 @@ class MemoMapperTest {
     form.setMarkDiv(0);
 
     memoMapper.createMemo(form);
-    assertThat(memoMapper.findAll()).hasSize(5);
+    List<Memo> memos = memoMapper.findAll();
+    assertThat(memos).hasSize(5);
+
+    int newMemoId = memos.get(memos.size() - 1).getId();
+    assertThat(memoMapper.findById(newMemoId)
+        .map(Memo::getTitle)
+        .orElseThrow()).isEqualTo("第5回課題");
+    assertThat(memoMapper.findById(newMemoId)
+        .map(Memo::getDescription)
+        .orElseThrow()).isEqualTo("プルリクエストの作成");
+    assertThat(memoMapper.findById(newMemoId)
+        .map(Memo::getDate)
+        .orElseThrow()).isEqualTo("2023/01/16");
   }
 
   @Test
@@ -79,8 +91,10 @@ class MemoMapperTest {
   )
   @Transactional
   void 指定したIDのメモを削除できること() {
-    memoMapper.deleteMemo(1);
     List<Memo> memos = memoMapper.findAll();
+    assertThat(memos).hasSize(4);
+    memoMapper.deleteMemo(1);
+    memos = memoMapper.findAll();
     assertThat(memos).hasSize(3);
   }
 
@@ -100,7 +114,7 @@ class MemoMapperTest {
     form.setMarkDiv(0);
 
     memoMapper.updateMemo(1, form);
-    assertThat(memoMapper.findById(1).map(Memo::getTitle).orElse("")).isEqualTo("第5回課題");
+    assertThat(memoMapper.findById(1).map(Memo::getTitle).orElseThrow()).isEqualTo("第5回課題");
   }
 }
 
