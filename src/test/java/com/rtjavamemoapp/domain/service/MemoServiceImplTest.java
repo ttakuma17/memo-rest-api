@@ -62,7 +62,7 @@ class MemoServiceImplTest {
         form.setCategory("Java");
         form.setDescription("プルリクエストの作成");
         form.setDate("2023/01/16");
-        form.setMark_div(0);
+        form.setMarkDiv(0);
 
         memoServiceImpl.createMemo(form);
         verify(memoMapper).createMemo(any(MemoForm.class));
@@ -85,7 +85,7 @@ class MemoServiceImplTest {
         form.setCategory("Java");
         form.setDescription("Hello World");
         form.setDate("2022/12/31");
-        form.setMark_div(1);
+        form.setMarkDiv(1);
 
         memoServiceImpl.updateMemo(1, form);
         verify(memoMapper).updateMemo(eq(1), any(MemoForm.class));
@@ -108,7 +108,7 @@ class MemoServiceImplTest {
         form.setCategory("Java");
         form.setDescription("Hello World");
         form.setDate("2022/12/31");
-        form.setMark_div(1);
+        form.setMarkDiv(1);
 
         assertThatThrownBy(() -> memoServiceImpl.updateMemo(1, form))
             .isInstanceOf(ResourceNotFoundException.class);

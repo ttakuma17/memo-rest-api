@@ -10,16 +10,16 @@ public class Memo {
     private String category;
     private String description;
     private String date;
-    private int MarkDiv;
+    private int markDiv;
 
     public Memo(int id, String title, String category, String description, String date,
-        int mark_div) {
+        int markDiv) {
         this.id = id;
         this.title = title;
         this.category = category;
         this.description = description;
         this.date = date;
-        this.MarkDiv = mark_div;
+        this.markDiv = markDiv;
     }
     
 }

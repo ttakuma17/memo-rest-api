@@ -65,7 +65,7 @@ class MemoMapperTest {
     form.setCategory("Java");
     form.setDescription("プルリクエストの作成");
     form.setDate("2023/01/16");
-    form.setMark_div(0);
+    form.setMarkDiv(0);
 
     memoMapper.createMemo(form);
     assertThat(memoMapper.findAll()).hasSize(5);
@@ -97,7 +97,7 @@ class MemoMapperTest {
     form.setCategory("Java");
     form.setDescription("プルリクエストの作成");
     form.setDate("2023/01/16");
-    form.setMark_div(0);
+    form.setMarkDiv(0);
 
     memoMapper.updateMemo(1, form);
     assertThat(memoMapper.findById(1).map(Memo::getTitle).orElse("")).isEqualTo("第5回課題");
