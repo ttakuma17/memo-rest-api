@@ -4,11 +4,18 @@ import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.application.resources.MemoResponse;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.domain.service.MemoService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,19 +34,22 @@ public class MemoController {
     }
 
     @PostMapping("/memos")
-    public void createMemo(@RequestBody @Validated MemoForm form) {
+    public ResponseEntity<Map<String, String>> createMemo(@RequestBody @Validated MemoForm form) {
         memoService.createMemo(form);
+        return ResponseEntity.ok(Map.of("message", "memo has been successfully updated"));
     }
 
     @DeleteMapping("/memos/{id}")
-    public void deleteMemo(@PathVariable int id) {
+    public ResponseEntity<Map<String, String>> deleteMemo(@PathVariable int id) {
         memoService.deleteMemo(id);
+        return ResponseEntity.ok(Map.of("message", "memo has been successfully deleted"));
+
     }
 
     @PatchMapping("/memos/{id}")
-    public void updateMemo(@PathVariable int id, @RequestBody @Validated MemoForm form) {
+    public ResponseEntity<Map<String, String>> updateMemo(@PathVariable int id,
+        @RequestBody @Validated MemoForm form) {
         memoService.updateMemo(id, form);
+        return ResponseEntity.ok(Map.of("message", "memo has been successfully updated"));
     }
-    
 }
-
