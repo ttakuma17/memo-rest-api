@@ -36,7 +36,7 @@ public class MemoController {
     @PostMapping("/memos")
     public ResponseEntity<Map<String, String>> createMemo(@RequestBody @Validated MemoForm form) {
         memoService.createMemo(form);
-        return ResponseEntity.ok(Map.of("message", "memo has been successfully updated"));
+        return ResponseEntity.ok(Map.of("message", "memo has been successfully created"));
     }
 
     @DeleteMapping("/memos/{id}")
