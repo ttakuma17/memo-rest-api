@@ -38,7 +38,7 @@ public class MemoRestApiIntegrationTest {
   ObjectMapper objectMapper = new ObjectMapper();
 
   @Test
-  void メモを全件取得して200レスポンスを返すこと() throws Exception {
+  void メモを全件取得し200レスポンスを返すこと() throws Exception {
     String response = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -89,7 +89,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 指定したIDに紐づくメモを取得して200レスポンスを返すこと() throws Exception {
+  void 指定したIDに紐づくメモを取得し200レスポンスを返すこと() throws Exception {
     String response = mockMvc.perform(MockMvcRequestBuilders.get("/memos/1")).
         andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -111,13 +111,13 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 存在しないID指定してメモを取得して404レスポンスを返すこと() throws Exception {
+  void 存在しないID指定してメモを取得すると404レスポンスを返すこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get("/memos/100"))
         .andExpect(MockMvcResultMatchers.status().isNotFound());
   }
 
   @Test
-  void メモを新規作成して200レスポンスを返すこと() throws Exception {
+  void メモを新規作成して201レスポンスを返すこと() throws Exception {
 
     String countDbBeforeCreate = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -137,7 +137,7 @@ public class MemoRestApiIntegrationTest {
                 "markDiv": 1
             }
             """)
-    ).andExpect(MockMvcResultMatchers.status().isOk());
+    ).andExpect(MockMvcResultMatchers.status().isCreated());
 
     String countDbAfterCreate = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -191,7 +191,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void メモを削除して200レスポンスを返すこと() throws Exception {
+  void メモを削除し200レスポンスを返すこと() throws Exception {
 
     String countDbBeforeDelete = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
