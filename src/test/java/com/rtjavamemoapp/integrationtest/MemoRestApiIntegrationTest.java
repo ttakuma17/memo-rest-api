@@ -38,7 +38,7 @@ public class MemoRestApiIntegrationTest {
   ObjectMapper objectMapper = new ObjectMapper();
 
   @Test
-  void メモを全件取得し200レスポンスを返すこと() throws Exception {
+  void メモを全件取得した時のレスポンス内容が正しいこと() throws Exception {
     String response = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -89,7 +89,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 指定したIDに紐づくメモを取得し200レスポンスを返すこと() throws Exception {
+  void 指定したIDに紐づくメモを取得した時のレスポンス内容が正しいこと() throws Exception {
     String response = mockMvc.perform(MockMvcRequestBuilders.get("/memos/1")).
         andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -111,13 +111,13 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 存在しないID指定してメモを取得すると404レスポンスを返すこと() throws Exception {
+  void 存在しないID指定しメモを取得する時のレスポンス内容が正しいこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get("/memos/100"))
         .andExpect(MockMvcResultMatchers.status().isNotFound());
   }
 
   @Test
-  void メモを新規作成して201レスポンスを返すこと() throws Exception {
+  void メモを新規作成した時のレスポンス内容が正しいこと() throws Exception {
 
     String countDbBeforeCreate = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -149,7 +149,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void メモを更新して200レスポンスを返すこと() throws Exception {
+  void メモを更新した時のレスポンス内容が正しいこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.patch("/memos/1")
         .contentType(MediaType.APPLICATION_JSON)
         .content("""
@@ -175,7 +175,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 存在しないIDを指定してメモを更新すると404レスポンスを返すこと() throws Exception {
+  void 存在しないIDを指定してメモを更新する時のレスポンス内容が正しいこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.patch("/memos/100")
             .contentType(MediaType.APPLICATION_JSON)
             .content("""
@@ -191,7 +191,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void メモを削除し200レスポンスを返すこと() throws Exception {
+  void メモを削除した時のレスポンス内容が正しいこと() throws Exception {
 
     String countDbBeforeDelete = mockMvc.perform(MockMvcRequestBuilders.get("/memos"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
@@ -214,7 +214,7 @@ public class MemoRestApiIntegrationTest {
   }
 
   @Test
-  void 存在しないIDを指定して削除すると404レスポンスを返すこと() throws Exception {
+  void 存在しないIDを指定して削除する時のレスポンス内容が正しいこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.delete("/memos/100"))
         .andExpect(MockMvcResultMatchers.status().isNotFound());
   }
