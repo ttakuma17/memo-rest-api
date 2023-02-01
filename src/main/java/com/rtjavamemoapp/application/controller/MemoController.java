@@ -4,6 +4,7 @@ import com.rtjavamemoapp.application.resources.MemoForm;
 import com.rtjavamemoapp.application.resources.MemoResponse;
 import com.rtjavamemoapp.domain.model.Memo;
 import com.rtjavamemoapp.domain.service.MemoService;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,7 +38,10 @@ public class MemoController {
     @PostMapping("/memos")
     public ResponseEntity<Map<String, String>> createMemo(@RequestBody @Validated MemoForm form) {
         memoService.createMemo(form);
-        return ResponseEntity.ok(Map.of("message", "memo has been successfully created"));
+        URI url = UriComponentsBuilder.fromUriString("").path("/memos/id").build().toUri();
+
+        return ResponseEntity.created(url)
+            .body(Map.of("message", "memo has been successfully created"));
     }
 
     @DeleteMapping("/memos/{id}")
