@@ -22,7 +22,7 @@ jobs:
         run: docker compose up -d
 
       - name: Add exec Permission
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
 
       - name: Run test with Gradle
         id: test
