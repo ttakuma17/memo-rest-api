@@ -17,7 +17,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
-          cache: 'gradle'
 
       - name: start docker
         run: docker compose up -d
