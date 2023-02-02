@@ -1,13 +1,12 @@
 name: Unit Testing by Github Actions
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
       - 'feature/*'
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
