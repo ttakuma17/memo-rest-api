@@ -216,6 +216,6 @@ public class MemoRestApiIntegrationTest {
   @Test
   void 存在しないIDを指定して削除する時のレスポンス内容が正しいこと() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.delete("/memos/100"))
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(MockMvcResultMatchers.status().isNotFound());
   }
 }

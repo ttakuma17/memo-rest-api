@@ -1,13 +1,16 @@
 name: Unit Testing by Github Actions
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
       - 'feature/*'
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +27,7 @@ jobs:
       - name: Add exec Permission
         run: chmod +x gradlew
 
-      - name: Run test with Gradle
-        uses: eskatos/gradle-command-action@v1
-        with:
-          argument: test
+      - name: Test with Gradle
+        id: test
+        run: ./gradlew test
+        if: always()
