@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'zulu'
+          distribution: 'temurin'
 
       - name: start docker
         run: docker compose up -d
@@ -24,8 +24,7 @@ jobs:
       - name: Add exec Permission
         run: chmod +x ./gradlew
 
-      - name: Run test with Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: test
-          cache-disabled: true
+      - name: Test with Gradle
+        id: test
+        run: ./gradlew test
+        if: always()
