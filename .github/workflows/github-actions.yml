@@ -17,6 +17,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
+          cache: 'gradle'
 
       - name: start docker
         run: docker compose up -d
@@ -25,6 +26,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run test with Gradle
-        uses: eskatos/gradle-command-action@v1
-        with:
-          argument: test
+        id: test
+        run: ./gradlew test
+        if: always()
