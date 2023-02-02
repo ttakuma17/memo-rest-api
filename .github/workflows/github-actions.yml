@@ -1,0 +1,31 @@
+name: Unit Testing by Github Actions
+
+on:
+  pull_request:
+    branches:
+      - main
+      - 'feature/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'zulu'
+
+      - name: start docker
+        run: docker compose up -d
+
+      - name: Add exec Permission
+        run: chmod +x ./gradlew
+
+      - name: Run test with Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+          cache-disabled: true
