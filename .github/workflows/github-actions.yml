@@ -25,6 +25,6 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run test with Gradle
-        id: test
-        run: ./gradlew test
-        if: always()
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
