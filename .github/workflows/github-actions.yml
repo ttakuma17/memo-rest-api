@@ -33,5 +33,5 @@ jobs:
 
       - name: Test with Gradle
         id: test
-        run: gradle test
+        run: ./gradlew test
         if: always()
