@@ -12,9 +12,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3307/memos
-      SPRING_DATASOURCE_USER_NAME: user
-      SPRING_DATASOURCE_USER_PASS: password
+      SPRING_DATASOURCE_URL: ${{secrets.SPRING_DATASOURCE_URL}}
+      SPRING_DATASOURCE_USER_NAME: ${{secrets.SPRING_DATASOURCE_NAME}}
+      SPRING_DATASOURCE_USER_PASS: ${{secrets.SPRING_DATASOURCE_PASS}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
