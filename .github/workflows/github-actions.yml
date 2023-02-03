@@ -11,9 +11,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    run:
-      echo ${SPRING_DATASOURCE_URL} ${SPRING_DATASOURCE_USER_NAME} ${SPRING_DATASOURCE_USER_PASS}
-
     env:
       SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
       SPRING_DATASOURCE_USER_NAME: ${{ secrets.SPRING_DATASOURCE_NAME }}
